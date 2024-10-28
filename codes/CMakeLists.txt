@@ -1,26 +1,29 @@
 cmake_minimum_required(VERSION 3.16)
 project(HiveGame)
 
+# 设置 C++ 标准为 C++17
 set(CMAKE_CXX_STANDARD 17)
 
+# 添加项目的源文件
 add_executable(HiveGame
         src/main.cpp
         src/Board.cpp
         src/Insect.cpp
         src/QueenBee.cpp
-        src/Position.cpp)
+        src/Position.cpp
+)
 
+# 设置 SFML 的包含和库路径
+set(SFML_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/libs/SFML/include")
+set(SFML_LIBRARY_DIR "${PROJECT_SOURCE_DIR}/libs/SFML/lib")
+
+# 包含 SFML 的头文件目录
+include_directories(${SFML_INCLUDE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-# 设置 SFML 的路径
-set(SFML_PREFIX_PATH "C://SFML-2.6.1")
-
-# 查找 SFML 库
-find_package(SFML 2.6.1 COMPONENTS graphics window system REQUIRED)
-
-# 添加项目的源文件
-add_executable(HiveGame main.cpp Board.cpp Insect.cpp Position.cpp)
-
-
-# 将 SFML 链接到你的项目
-target_link_libraries(HiveGame sfml-graphics sfml-window sfml-system)
+# 链接 SFML 的静态库
+target_link_libraries(HiveGame
+        "${SFML_LIBRARY_DIR}/libsfml-graphics.a"
+        "${SFML_LIBRARY_DIR}/libsfml-window.a"
+        "${SFML_LIBRARY_DIR}/libsfml-system.a"
+)
