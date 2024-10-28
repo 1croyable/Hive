@@ -11,6 +11,9 @@ add_executable(HiveGame
         src/Insect.cpp
         src/QueenBee.cpp
         src/Position.cpp
+        src/Game.h
+        src/PlayerControl.cpp
+        src/Player.cpp
 )
 
 # 设置 SFML 的包含和库路径

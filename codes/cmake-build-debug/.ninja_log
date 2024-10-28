@@ -1,7 +1,7 @@
 # ninja log v6
-294	572	7517784485458586	CMakeFiles/HiveGame.dir/src/Position.cpp.obj	a13307c311141684
-134	698	7517784483853776	CMakeFiles/HiveGame.dir/src/Insect.cpp.obj	452ca688585caf83
-5	714	7517784482553056	CMakeFiles/HiveGame.dir/src/main.cpp.obj	e5d7058b09bc5e1e
-221	767	7517784484727800	CMakeFiles/HiveGame.dir/src/QueenBee.cpp.obj	ef83e5cb4bfdf119
-75	814	7517784483261347	CMakeFiles/HiveGame.dir/src/Board.cpp.obj	3547341dce04fe3d
-814	1139	7517784490644008	HiveGame.exe	bb520a797b2d3db8
+782	1512	7517948070738113	CMakeFiles/HiveGame.dir/src/Position.cpp.obj	b7f2c5dc5cf1cb80
+383	1463	7517948066742875	CMakeFiles/HiveGame.dir/src/Insect.cpp.obj	7e4a467d30e07344
+10	1495	7517948063017052	CMakeFiles/HiveGame.dir/src/main.cpp.obj	b995aee2797398f0
+1612	2299	7517948079036303	HiveGame.exe	bb520a797b2d3db8
+552	1612	7517948068437144	CMakeFiles/HiveGame.dir/src/QueenBee.cpp.obj	cccef60ee33a6338
+236	1612	7517948065282619	CMakeFiles/HiveGame.dir/src/Board.cpp.obj	c9c72970260aa570

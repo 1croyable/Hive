@@ -24,6 +24,9 @@ CMAKE_AR:FILEPATH=C:/Users/wangj/AppData/Local/Programs/CLion/bin/mingw/bin/ar.e
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
 
+//Enable colored diagnostics throughout.
+CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+
 //CXX compiler
 CMAKE_CXX_COMPILER:FILEPATH=C:/Users/wangj/AppData/Local/Programs/CLion/bin/mingw/bin/g++.exe
 
