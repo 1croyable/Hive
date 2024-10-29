@@ -11,7 +11,7 @@ class Game {
     enum class GameState {
         Playing,
         Paused,
-
+        Ended
     };
     public:
 

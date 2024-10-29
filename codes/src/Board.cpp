@@ -14,8 +14,8 @@ void Board::updateBoard() {
 
 bool Board::checkGameEnd() {
     const PlayerControl* playerControl = PlayerControl::getInstance();
-    const Player& nextPlayer = playerControl->getNextPlayer();
-    const QueenBee* queenBeeRival = nextPlayer.getQueenBee();
+    const Player* nextPlayer = playerControl->getNextPlayer();
+    const QueenBee* queenBeeRival = nextPlayer->getQueenBee();
     const std::vector<Position> positions = getAdjacentPositions(queenBeeRival->getposition());
     for(int i = 0; i < positions.size(); i++) {
         if(isPositionFree(positions[i])) {
@@ -63,10 +63,6 @@ void Board::checkGrid(std::ostream& os = std::cout) const {
     }
 }
 
-std::vector<std::vector<Insect*>>* Board::getGrid() {
-    return &grid;
-}
-
 inline std::vector<std::vector<Position>>* Board::getTotalBoard() {
     return &totalBoard;
 }
@@ -98,7 +94,7 @@ Position* Board::getAdjacentPositions(const Position& pos) const {
     return adjacentPositions;  // 返回指向动态分配数组的指针
 }
 
-std::vector<Position> Board::getValidPositions(const Insect& insect) {
+std::vector<Position> Board::getValidPositions(const Insect& insect) const {
     return insect.getPortee(grid, totalBoard);
 };
 
@@ -140,20 +136,13 @@ void Board::placePiece(Insect* insect, const Position& pos) {
 // 这是昆虫移动的入口函数，所有其他的判断都要在里边执行
 void Board::moveOrNewPiece(Insect* insect, const Position& newPos) {
     // 既然可以执行这个函数，说明已经同意可以被选择，拿起后蜂巢是完整的（或者本来就是从用户的包里取用）
+    // 位置是否合法已经判断过了，这里默认是合法的
     if(!insect->isInBag()) {
         // 如果从包里拿出来的，就没有旧位置
-        const Position oldPos = insect->getPosition();
+        grid[insect->getPosition().y][insect->getPosition().x] = nullptr;
     }
-    // 判断能否被移动, newPos合法吗，玩家点击某个昆虫，应该已经使用getValidPosition计算了昆虫可以放的地方，如果没有是不让选择的
-    // 所以我们保存在昆虫里，它可以走的地方，在这里只要取用来比较
-    if (isValidMove(*insect, newPos)) {
-        if(!insect->isInBag()){
-            grid[oldPos.y][oldPos.x] = nullptr;
-        }
-        placePiece(insect, newPos);
-    } else {
-        return; // 这里以后要改成报错
-    }
+
+    placePiece(insect, newPos);
 }
 
 void highLight() {
