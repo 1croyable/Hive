@@ -98,6 +98,27 @@ build CMakeFiles/HiveGame.dir/src/Player.cpp.obj: CXX_COMPILER__HiveGame_unscann
   OBJECT_DIR = CMakeFiles\HiveGame.dir
   OBJECT_FILE_DIR = CMakeFiles\HiveGame.dir\src
 
+build CMakeFiles/HiveGame.dir/src/HumanPlayer.cpp.obj: CXX_COMPILER__HiveGame_unscanned_Debug D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/src/HumanPlayer.cpp || cmake_object_order_depends_target_HiveGame
+  DEP_FILE = CMakeFiles\HiveGame.dir\src\HumanPlayer.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/include" -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/src"
+  OBJECT_DIR = CMakeFiles\HiveGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\HiveGame.dir\src
+
+build CMakeFiles/HiveGame.dir/src/RobotPlayer.cpp.obj: CXX_COMPILER__HiveGame_unscanned_Debug D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/src/RobotPlayer.cpp || cmake_object_order_depends_target_HiveGame
+  DEP_FILE = CMakeFiles\HiveGame.dir\src\RobotPlayer.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/include" -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/src"
+  OBJECT_DIR = CMakeFiles\HiveGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\HiveGame.dir\src
+
+build CMakeFiles/HiveGame.dir/src/Game.cpp.obj: CXX_COMPILER__HiveGame_unscanned_Debug D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/src/Game.cpp || cmake_object_order_depends_target_HiveGame
+  DEP_FILE = CMakeFiles\HiveGame.dir\src\Game.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/include" -I"D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/src"
+  OBJECT_DIR = CMakeFiles\HiveGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\HiveGame.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target HiveGame
@@ -106,7 +127,7 @@ build CMakeFiles/HiveGame.dir/src/Player.cpp.obj: CXX_COMPILER__HiveGame_unscann
 #############################################
 # Link the executable HiveGame.exe
 
-build HiveGame.exe: CXX_EXECUTABLE_LINKER__HiveGame_Debug CMakeFiles/HiveGame.dir/src/main.cpp.obj CMakeFiles/HiveGame.dir/src/Board.cpp.obj CMakeFiles/HiveGame.dir/src/Insect.cpp.obj CMakeFiles/HiveGame.dir/src/QueenBee.cpp.obj CMakeFiles/HiveGame.dir/src/Position.cpp.obj CMakeFiles/HiveGame.dir/src/PlayerControl.cpp.obj CMakeFiles/HiveGame.dir/src/Player.cpp.obj | D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-graphics.a D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-window.a D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-system.a
+build HiveGame.exe: CXX_EXECUTABLE_LINKER__HiveGame_Debug CMakeFiles/HiveGame.dir/src/main.cpp.obj CMakeFiles/HiveGame.dir/src/Board.cpp.obj CMakeFiles/HiveGame.dir/src/Insect.cpp.obj CMakeFiles/HiveGame.dir/src/QueenBee.cpp.obj CMakeFiles/HiveGame.dir/src/Position.cpp.obj CMakeFiles/HiveGame.dir/src/PlayerControl.cpp.obj CMakeFiles/HiveGame.dir/src/Player.cpp.obj CMakeFiles/HiveGame.dir/src/HumanPlayer.cpp.obj CMakeFiles/HiveGame.dir/src/RobotPlayer.cpp.obj CMakeFiles/HiveGame.dir/src/Game.cpp.obj | D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-graphics.a D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-window.a D$:/Le$ Premier$ trimestre$ de$ la$ troisieme$ annee/CPP/Hive/codes/libs/SFML/lib/libsfml-system.a
   FLAGS = -g
   LINK_LIBRARIES = "D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/lib/libsfml-graphics.a"  "D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/lib/libsfml-window.a"  "D:/Le Premier trimestre de la troisieme annee/CPP/Hive/codes/libs/SFML/lib/libsfml-system.a"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HiveGame.dir

@@ -12,10 +12,10 @@ void Board::updateBoard() {
     // 调用window方法更新视图
 }
 
-bool Board::checkGameEnd() {
+bool Board::checkGameEnd() const {
     const PlayerControl* playerControl = PlayerControl::getInstance();
     const Player* nextPlayer = playerControl->getNextPlayer();
-    const QueenBee* queenBeeRival = nextPlayer->getQueenBee();
+    QueenBee* queenBeeRival = nextPlayer->getQueenBee();
     const std::vector<Position> positions = getAdjacentPositions(queenBeeRival->getposition());
     for(int i = 0; i < positions.size(); i++) {
         if(isPositionFree(positions[i])) {
@@ -33,8 +33,8 @@ void Board::checkGrid(std::ostream& os = std::cout) const {
             os << "  ";
         }
 
-        for (int col = 0; col < grid[row].size(); ++col) {
-            if (grid[row][col] != nullptr) {
+        for (const auto col : grid[row]) {
+            if (col != nullptr) {
                 // 根据昆虫的类型进行输出
                 switch (insect->whichType()) {
                     case InsectType::QueenBee:
@@ -89,7 +89,7 @@ Position* Board::getAdjacentPositions(const Position& pos) const {
         adjacentPositions[index++] = totalBoard[pos.y - 1][pos.x + 1];
 
     if (pos.x - 1 >= -size / 2 && pos.y + 1 <= size / 2)
-        adjacentPositions[index++] = totalBoard[pos.y + 1][pos.x - 1];
+        adjacentPositions[index] = totalBoard[pos.y + 1][pos.x - 1];
 
     return adjacentPositions;  // 返回指向动态分配数组的指针
 }
@@ -112,10 +112,10 @@ bool Board::isPositionFree(const Position& pos) const {
     return true;
 }
 
-bool Board::isValidMove(const Insect& insect, const Position& target) {
+bool Board::isValidPosition(Insect* insect, const Position& target) {
     // 此时昆虫已经被选择
     // 用户已经选择了target目标位置，传入了这个函数
-    for(auto it = insect.portee.begin(); it != insect.portee.end(); ++it) {
+    for(auto it = insect->portee.begin(); it != insect->portee.end(); ++it) {
         if(*it == target) {
             return true;
         }
@@ -124,17 +124,17 @@ bool Board::isValidMove(const Insect& insect, const Position& target) {
 }
 
 // 在指定位置放置昆虫
-void Board::placePiece(Insect* insect, const Position& pos) {
-    grid[pos.y][pos.x] = insect;
-    insect->setPosition(pos);  // 设置昆虫的位置
+void Board::placePiece(Insect* insect, const Position* pos) {
+    grid[pos->y][pos->x] = insect;
+    insect->setPosition(*pos);  // 设置昆虫的位置
     // 以后要加上高亮区块
     // 输出调试信息
-    std::cout << "Placed insect at position (" << pos.x << ", " << pos.y << ")" << std::endl;
+    std::cout << "Placed insect at position (" << pos->x << ", " << pos->y << ")" << std::endl;
     updateBoard();
 }
 
 // 这是昆虫移动的入口函数，所有其他的判断都要在里边执行
-void Board::moveOrNewPiece(Insect* insect, const Position& newPos) {
+void Board::moveOrNewPiece(Insect* insect, const Position* newPos) {
     // 既然可以执行这个函数，说明已经同意可以被选择，拿起后蜂巢是完整的（或者本来就是从用户的包里取用）
     // 位置是否合法已经判断过了，这里默认是合法的
     if(!insect->isInBag()) {
@@ -151,4 +151,8 @@ void highLight() {
 
 void cancelHighLight() {
     // 暂时不用
+}
+
+void isGridEntier() {
+    // 待写逻辑
 }
