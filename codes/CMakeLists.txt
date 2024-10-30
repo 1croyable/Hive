@@ -14,6 +14,11 @@ add_executable(HiveGame
         src/Game.h
         src/PlayerControl.cpp
         src/Player.cpp
+        src/HumanPlayer.h
+        src/HumanPlayer.cpp
+        src/RobotPlayer.h
+        src/RobotPlayer.cpp
+        src/Game.cpp
 )
 
 # 设置 SFML 的包含和库路径
